@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .teste{
+            background-color: blueviolet;
+        }
+    </style>
 </head>
 <body>
     <p></p>
@@ -19,6 +24,7 @@
         <li></li>
         <li></li>
     </ul>
+    
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
@@ -37,8 +43,18 @@
         //Seletor pela div que tenha a classe que contenha 'jquery'
         $('div[class*="jquery"').html('<h3>Usando HTML e manipulando o elemento DIV através da sua CLASS</h3>');
        
-        $('li:even').text('EVEN pega os elementos IMPARES da li');
-        $('li:odd').text('ODD pega os elementos PARES da li');
+        //Gera CSS Inline
+        $('ul').css({'margin':'0px', 'list-style':'none','padding':'0px'});
+        $('li').css('padding','10px');
+        
+        //Manipulando uma propriedade de css do elemento
+        $('li:even').text('EVEN pega os elementos IMPARES da li').css('background', '#CCC');
+
+        //Manipulando um ocnjunto de propriedades de css do elemento
+        $('li:odd').text('ODD pega os elementos PARES da li').css({'background':'#AAA', 'color':'#FFF'});
+
+        //Usa a classe .. não gerando assim CSS Inline
+        $('#jquery').addClass('teste');
     </script>
 </body>
 </html>
