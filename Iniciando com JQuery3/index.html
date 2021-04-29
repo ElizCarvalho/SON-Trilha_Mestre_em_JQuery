@@ -9,6 +9,16 @@
         .teste{
             background-color: blueviolet;
         }
+        .li-hover{
+            background: #FFF;
+            color: #000;
+            border: 1px solid #000;
+        }
+        .li-click{
+            background: #FFF;
+            color: #000;
+            border: 1px solid #000;
+        }
     </style>
 </head>
 <body>
@@ -55,6 +65,31 @@
 
         //Usa a classe .. não gerando assim CSS Inline
         $('#jquery').addClass('teste');
+
+        let liHover = function(){
+            $(this).addClass('li-hover')
+        }
+
+        let liHoverOut = function(){
+            $(this).removeClass('li-hover')
+        }
+
+        $('li').hover(liHover, liHoverOut);
+        
+        $('body').on('click', 'li', function(){
+            alert($(this).text());
+        });
+
+        $('div').click(function(){
+            alert($(this).text());
+        })
+
+        //Como foi aplicado no fim então as manipulações não surtem mais efeito nele (já aconteceram)
+        $('ul').append('<li>LI colocado dinamicamente</li>');
+
+        //https://api.jquery.com/
+        //https://api.jquery.com/category/events/
+
     </script>
 </body>
 </html>
