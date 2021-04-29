@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <div id="jquery"></div>
+    <div class="jquery"></div>
+    <div class="jquery-version-3"></div>
+    <div></div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        //As alterações que ficam são as últimas aplicadas... as mais antigas são substituídas quando aplicadas ao mesmo elemento
+        
+        //Seletor mais geral.. pega em todas as tags DIV e P
+        $('div').html('<h5>Usando HTML e manipulando o elemento DIV pelo seletor DIV (puro)</h5>');
+        $('p').text('CTRL+U mostra o código original sem a renderização dinâmica dos elementos.');
+
+        //Seletor pelo ID do elemento HTML
+        $('#jquery').html('<h1>Usando HTML e manipulando o elemento DIV através do seu ID</h1>');
+
+        //Seletor pela classe do elemento HTML
+        $('.jquery').html('<h3>Usando HTML e manipulando o elemento DIV através da sua CLASS</h3>');
+
+        //Seletor pela div que tenha a classe que contenha 'jquery'
+        $('div[class*="jquery"').html('<h3>Usando HTML e manipulando o elemento DIV através da sua CLASS</h3>');
+       
+        $('li:even').text('EVEN pega os elementos IMPARES da li');
+        $('li:odd').text('ODD pega os elementos PARES da li');
+    </script>
+</body>
+</html>
