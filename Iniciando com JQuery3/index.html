@@ -67,11 +67,25 @@
         $('#jquery').addClass('teste');
 
         let liHover = function(){
-            $(this).addClass('li-hover')
+            //Modo 1: 
+            //$(this).addClass('li-hover')
+            //Modo 2:
+            // $(this).animate({
+            //     'padding':'10px' 
+            // }, 'slow')
+            //Modo 3:
+            //$(this).slideUp();
+            //Modo 4:
+            $(this).slideToggle();
         }
 
         let liHoverOut = function(){
-            $(this).removeClass('li-hover')
+            //Modo 1: 
+            //$(this).removeClass('li-hover')
+            //Modo 2:
+            //$(this).slideDown();
+            //Modo 3:
+            $(this).slideToggle();
         }
 
         $('li').hover(liHover, liHoverOut);
@@ -94,11 +108,11 @@
         // })
 
         //Equivalente a usar hide e show ... ele identifica o estado em que se encontra e aplica o oposto
-        $('div').hover(function(){
-            $(this).toggle('fast'); //opções são: slow, medio, fast
-        }, function(){
-            $(this).toggle(1000); //opções são: slow, medio, fast.. tbm em valor de ms 
-        })
+        // $('div').hover(function(){
+        //     $(this).toggle('fast'); //opções são: slow, medio, fast
+        // }, function(){
+        //     $(this).toggle(1000); //opções são: slow, medio, fast.. tbm em valor de ms 
+        // })
 
         //https://api.jquery.com/
         //https://api.jquery.com/category/events/
