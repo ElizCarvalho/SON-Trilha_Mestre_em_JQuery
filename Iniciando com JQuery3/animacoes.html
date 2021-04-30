@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .teste{
+            background-color: blueviolet;
+        }
+        .li-hover{
+            background: #FFF;
+            color: #000;
+            border: 1px solid #000;
+        }
+        .li-click{
+            background: #FFF;
+            color: #000;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <p></p>
+    <div id="jquery"></div>
+    <div class="jquery"></div>
+    <div class="jquery-version-3"></div>
+    <div></div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        //As alterações que ficam são as últimas aplicadas... as mais antigas são substituídas quando aplicadas ao mesmo elemento
+        
+        //Seletor mais geral.. pega em todas as tags DIV e P
+        $('div').html('<h5>Usando HTML e manipulando o elemento DIV pelo seletor DIV (puro)</h5>');
+        $('p').text('CTRL+U mostra o código original sem a renderização dinâmica dos elementos.');
+
+        //Seletor pelo ID do elemento HTML
+        $('#jquery').html('<h1>Usando HTML e manipulando o elemento DIV através do seu ID</h1>');
+
+        //Seletor pela classe do elemento HTML
+        $('.jquery').html('<h3>Usando HTML e manipulando o elemento DIV através da sua CLASS</h3>');
+
+        //Seletor pela div que tenha a classe que contenha 'jquery'
+        $('div[class*="jquery"]').html('<h3>Usando HTML e manipulando o elemento DIV através da sua CLASS</h3>');
+       
+        //Gera CSS Inline
+        $('ul').css({'margin':'0px', 'list-style':'none','padding':'0px'});
+        $('li').css('padding','10px');
+        
+        //Manipulando uma propriedade de css do elemento
+        $('li:even').text('EVEN pega os elementos IMPARES da li').css('background', '#CCC');
+
+        //Manipulando um ocnjunto de propriedades de css do elemento
+        $('li:odd').text('ODD pega os elementos PARES da li').css({'background':'#AAA', 'color':'#FFF'});
+
+        //Usa a classe .. não gerando assim CSS Inline
+        $('#jquery').addClass('teste');
+
+        let liHover = function(){
+            //Modo 1: 
+            //$(this).addClass('li-hover')
+            //Modo 2:
+            // $(this).animate({
+            //     'padding':'10px' 
+            // }, 'slow')
+            //Modo 3:
+            //$(this).slideUp();
+            //Modo 4:
+            $(this).slideToggle();
+        }
+
+        let liHoverOut = function(){
+            //Modo 1: 
+            //$(this).removeClass('li-hover')
+            //Modo 2:
+            //$(this).slideDown();
+            //Modo 3:
+            $(this).slideToggle();
+        }
+
+        $('li').hover(liHover, liHoverOut);
+        
+        $('body').on('click', 'li', function(){
+            alert($(this).text());
+        });
+
+        $('div').click(function(){
+            alert($(this).text());
+        })
+
+        //Como foi aplicado no fim então as manipulações não surtem mais efeito nele (já aconteceram)
+        $('ul').append('<li>LI colocado dinamicamente</li>');
+
+        // $('div').hover(function(){
+        //     $(this).hide('fast'); //opções são: slow, medio, fast
+        // }, function(){
+        //     $(this).show(1000); //opções são: slow, medio, fast.. tbm em valor de ms 
+        // })
+
+        //Equivalente a usar hide e show ... ele identifica o estado em que se encontra e aplica o oposto
+        // $('div').hover(function(){
+        //     $(this).toggle('fast'); //opções são: slow, medio, fast
+        // }, function(){
+        //     $(this).toggle(1000); //opções são: slow, medio, fast.. tbm em valor de ms 
+        // })
+
+        //https://api.jquery.com/
+        //https://api.jquery.com/category/events/
+
+    </script>
+</body>
+</html>
