@@ -87,6 +87,19 @@
         //Como foi aplicado no fim então as manipulações não surtem mais efeito nele (já aconteceram)
         $('ul').append('<li>LI colocado dinamicamente</li>');
 
+        // $('div').hover(function(){
+        //     $(this).hide('fast'); //opções são: slow, medio, fast
+        // }, function(){
+        //     $(this).show(1000); //opções são: slow, medio, fast.. tbm em valor de ms 
+        // })
+
+        //Equivalente a usar hide e show ... ele identifica o estado em que se encontra e aplica o oposto
+        $('div').hover(function(){
+            $(this).toggle('fast'); //opções são: slow, medio, fast
+        }, function(){
+            $(this).toggle(1000); //opções são: slow, medio, fast.. tbm em valor de ms 
+        })
+
         //https://api.jquery.com/
         //https://api.jquery.com/category/events/
 
